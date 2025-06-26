@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semana Eng. de Software</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rubik:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="matrix"></canvas>
+
+    <audio id="tecla" src="maquina.mp3" preload="auto"></audio>
+
+    <button id="toggleTheme">🎨 Trocar Cor</button>
+
+    <section class="cartaz">
+      <div class="topo">
+        <h1>SEMANA ACADÊMICA</h1>
+        <h2>ENGENHARIA DE SOFTWARE</h2>
+        <h3 class="ano">2025</h3>
+      </div>
+
+      <div class="linha"></div>
+
+      <div class="descricao">
+        <p class="evento">FACULDADE DE TECNOLOGIA • TUCURUÍ</p>
+        <p class="tema">INOVAÇÃO • CÓDIGO • CARREIRA • HACKATHON</p>
+      </div>
+
+      <div class="programacao">
+        <p>💻 PAINEL: A ERA DA INTELIGÊNCIA ARTIFICIAL</p>
+        <p>🔐 SEGURANÇA DIGITAL & PRIVACIDADE</p>
+        <p>📱 DESENVOLVIMENTO FULLSTACK EM TEMPO REAL</p>
+        <p>🚀 HACKATHON COM DESAFIOS REAIS</p>
+        <p>🎤 CONVIDADOS DE EMPRESAS COMO GOOGLE, IBM E STARTUPS</p>
+      </div>
+
+      <div class="rodape">
+        <p class="info">📍 AUDITÓRIO CENTRAL • 18 A 22 DE NOVEMBRO</p>
+        <p class="link">🔗 INSCREVA-SE EM: engsoftwarefacul.br/semana2025</p>
+        <p id="typedText" class="slogan"></p>
+      </div>
+    </section>
+
+    <script>
+      const toggleBtn = document.getElementById("toggleTheme");
+      const body = document.body;
+      const slogan = document.getElementById("typedText");
+      const tecla = document.getElementById("tecla");
+
+      function startTyping(text) {
+        slogan.textContent = "";
+        let i = 0;
+
+        const interval = setInterval(() => {
+          if (i < text.length) {
+            slogan.textContent += text[i];
+            tecla.currentTime = 0;
+            tecla.play();
+            i++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        const resposta = confirm("🧠 Você está pronto para codar?");
+        if (!resposta) return;
+
+        body.classList.toggle("light-mode");
+
+        if (body.classList.contains("light-mode")) {
+          toggleBtn.textContent = "🌙 Modo Escuro";
+          startTyping("Colabore. Crie. Codifique.");
+        } else {
+          toggleBtn.textContent = "🎨 Modo Claro";
+          startTyping("Codar. Conectar. Transformar.");
+        }
+      });
+
+      // iniciar com modo escuro e slogan digitando
+      window.onload = () => startTyping("Codar. Conectar. Transformar.");
+
+      // MATRIX
+      const canvas = document.getElementById("matrix");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      letters = letters.split("");
+
+      let fontSize = 16;
+      let columns = canvas.width / fontSize;
+      let drops = Array(Math.floor(columns)).fill(1);
+
+      function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#00FF00";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = letters[Math.floor(Math.random() * letters.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      setInterval(drawMatrix, 50);
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
+  </body>
+</html>

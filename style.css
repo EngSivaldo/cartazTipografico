@@ -1,0 +1,249 @@
+body {
+  margin: 0;
+  background: #0a0f2c;
+  font-family: "Rubik", sans-serif;
+  color: white;
+}
+body.light-mode {
+  font-family: "Poppins", sans-serif;
+}
+
+.cartaz {
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 5vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(145deg, #0a0f2c, #020613);
+  box-shadow: inset 0 0 80px rgba(0, 255, 255, 0.1);
+}
+
+.topo h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(2rem, 8vw, 6cm);
+  color: #00fff0;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.topo h2 {
+  font-size: clamp(1.5rem, 6vw, 4cm);
+  color: #ffd700;
+  text-transform: uppercase;
+  margin: 1rem 0 0.5rem;
+}
+
+.ano {
+  font-size: clamp(1.2rem, 5vw, 3.5cm);
+  color: #00d4ff;
+  text-shadow: 0 0 20px #00d4ff99;
+}
+
+.linha {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, #00fff0, #ffd700);
+  margin: 2rem 0;
+}
+
+.descricao {
+  text-align: center;
+}
+
+.evento {
+  font-size: clamp(1rem, 4vw, 1.8cm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.tema {
+  font-size: clamp(0.8rem, 3vw, 1.5cm);
+  margin-top: 0.5rem;
+  color: #ccc;
+}
+
+.programacao {
+  margin-top: 2rem;
+  font-size: clamp(1rem, 4.5vw, 2.2cm);
+  line-height: 1.6;
+  font-weight: 600;
+  color: #ffffffcc;
+}
+
+.rodape {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.info {
+  font-size: clamp(1rem, 4vw, 1.8cm);
+  margin-bottom: 0.4rem;
+}
+
+.link {
+  font-size: clamp(0.9rem, 3.5vw, 1.6cm);
+  color: #00fff0;
+}
+
+.slogan {
+  margin-top: 2rem;
+  font-size: clamp(1.2rem, 4.5vw, 2.8cm);
+  color: #ffd700;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Estilo do botão */
+#toggleTheme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffd700;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 0 10px #00000088;
+  transition: all 0.3s ease;
+}
+
+#toggleTheme:hover {
+  background: #00fff0;
+  color: #000;
+}
+
+/* Tema claro alternativo */
+body.light-mode {
+  background: #f9f9f9;
+  color: #222;
+}
+
+body.light-mode .cartaz {
+  background: linear-gradient(135deg, #ffffff, #e0f7ff);
+  color: #000;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .topo h1,
+body.light-mode .ano,
+body.light-mode .slogan {
+  color: #005bbb;
+  text-shadow: none;
+}
+
+body.light-mode .topo h2 {
+  color: #ffa500;
+}
+
+body.light-mode .link {
+  color: #005bbb;
+}
+
+/* --- BOTÃO --- */
+#toggleTheme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffd700;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 0 10px #00000088;
+  transition: all 0.3s ease;
+}
+
+#toggleTheme:hover {
+  background: #00fff0;
+  color: #000;
+}
+
+/* --- MODO CLARO --- */
+body.light-mode {
+  background: #f0faff;
+  color: #222;
+}
+
+body.light-mode .cartaz {
+  background: linear-gradient(135deg, #ffffff, #e0f7ff);
+  color: #000;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.05);
+}
+
+/* TÍTULOS */
+body.light-mode .topo h1 {
+  color: #005bbb;
+}
+
+body.light-mode .topo h2 {
+  color: #ff6a00;
+}
+
+body.light-mode .ano {
+  color: #0088cc;
+  text-shadow: none;
+}
+
+/* TEXTO GERAL */
+body.light-mode .programacao,
+body.light-mode .descricao,
+body.light-mode .info,
+body.light-mode .link {
+  color: #111;
+}
+
+body.light-mode .link {
+  color: #005bbb;
+  font-weight: bold;
+}
+
+body.light-mode .slogan {
+  color: #ff6a00;
+}
+
+/* LINHA */
+body.light-mode .linha {
+  background: linear-gradient(to right, #005bbb, #ff6a00);
+}
+
+#typedText {
+  font-size: clamp(1.8rem, 4.5vw, 3cm);
+  color: #00fff0;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.2em;
+  border-right: 2px solid #ffd700;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blinkCursor 0.8s steps(1) infinite;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+@keyframes blinkCursor {
+  from {
+    border-color: #ffd700;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: transparent;
+  pointer-events: none;
+}
